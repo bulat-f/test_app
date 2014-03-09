@@ -4,14 +4,23 @@
       = link_to "test app", root_path, id: "logo"
       %nav.navbar-right
         %ul.nav.nav-pills
+          %li
+            = link_to "Posts", posts_path
+          -# < dropdown >
           - if user_signed_in?
-            %li
-              = link_to "Signed in as #{current_user.email}", "#"
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Menu
+                %span.caret
+              %ul.dropdown-menu
+                %li= link_to "Signed in as #{current_user.email}", "#"
+                -if current_user.admin?
+                  %li
+                    = link_to "admin", "#"
+            -# < /dropdown >
+
             %li
               = link_to "Sign out", destroy_user_session_path, method: 'delete'
-            -if current_user.admin?
-              %li
-                = link_to "admin", "#"
           - else
             %li
               = link_to "Sign in", new_user_session_path

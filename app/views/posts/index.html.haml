@@ -1,0 +1,8 @@
+%h1 Posts#index
+%p Find me in app/views/posts/index.html.haml
+-if user_signed_in? && current_user.admin?
+  = link_to "Create new post", new_post_path, class: "btn btn-lg btn-success"
+%br
+= will_paginate
+= render @posts
+= will_paginate
