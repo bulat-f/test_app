@@ -9,6 +9,9 @@
               = link_to "Signed in as #{current_user.email}", "#"
             %li
               = link_to "Sign out", destroy_user_session_path, method: 'delete'
+            -if current_user.admin?
+              %li
+                = link_to "admin", "#"
           - else
             %li
               = link_to "Sign in", new_user_session_path

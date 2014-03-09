@@ -3,4 +3,12 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  before_create :make_admin
+
+  private
+
+  def make_admin
+    self.admin = true if User.all.count == 0
+  end
 end
