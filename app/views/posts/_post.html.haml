@@ -1,4 +1,5 @@
-.panel.panel-default
-  .panel-body
-    = link_to post.title, post
+.well
+  = link_to post.title, post
+  %span.time
+    = "Posted #{time_ago_in_words(post.created_at)} ago"
   = render 'shared/admin_links', edit_path: edit_post_path(post), removed: post

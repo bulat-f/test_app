@@ -136,17 +136,26 @@ footer {
 }
 
 .user {
-  display: block;
 }
 
 .time {
   text-align: right;
   color: lightGray;
+  display: inline;
+}
+
+.comment {
+  margin-top: 10px;
+  margin-left: 15px;
   display: block;
 }
 
 .admin_links {
   margin: 10px;
+}
+
+.new_line {
+  margin: 5px;
 }
 
 input, textarea, select, .uneditable-input {

@@ -5,8 +5,8 @@
       = user.email
     - else
       Anonim
-  %span.comment
-    = comment.text
   %span.time
     = "Commented #{time_ago_in_words(comment.created_at)} ago"
+  %span.comment
+    = comment.text
   = render 'shared/admin_links', edit_path: nil, removed: comment

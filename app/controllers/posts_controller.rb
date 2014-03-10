@@ -2,8 +2,10 @@ class PostsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :admin_user,         only: [:new, :create, :edit, :update, :destroy]
+
   def index
-    @posts = Post.paginate(page: params[:page])
+    order = params[:DESC] ? :desc : :asc
+    @posts = Post.order(created_at: order).paginate(page: params[:page])
   end
 
   def show
