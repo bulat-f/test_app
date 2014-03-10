@@ -1,0 +1,12 @@
+- user = User.find_by(id: comment.user_id)
+.well.well-sm
+  %span.user
+    - if user
+      = user.email
+    - else
+      Anonim
+  %span.comment
+    = comment.text
+  %span.time
+    = "Commented #{time_ago_in_words(comment.created_at)} ago"
+  = render 'shared/admin_links', edit_path: nil, removed: comment

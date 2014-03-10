@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @comments = @post.comments
   end
 
   def new
@@ -37,7 +38,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if Post.find_by(id: params[:id]).destroy
+    if Post.find(id: params[:id]).destroy
       flash[:success] = "Post deleted"
       redirect_to posts_path
     end
@@ -46,11 +47,5 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :body)
-  end
-
-  def admin_user
-    unless current_user.admin?
-      redirect_to posts_path
-    end
   end
 end

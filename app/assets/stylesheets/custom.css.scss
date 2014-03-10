@@ -135,6 +135,20 @@ footer {
   }
 }
 
+.user {
+  display: block;
+}
+
+.time {
+  text-align: right;
+  color: lightGray;
+  display: block;
+}
+
+.admin_links {
+  margin: 10px;
+}
+
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;

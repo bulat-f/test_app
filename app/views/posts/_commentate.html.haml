@@ -1,0 +1,5 @@
+= form_for(Comment.new(post_id: @post.id)) do |f|
+  = f.hidden_field :post_id
+  = f.label :text
+  = f.text_area :text
+  = f.submit "Comment", class: "btn btn-lg btn-primary"
