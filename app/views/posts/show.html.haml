@@ -2,6 +2,8 @@
   = @post.title 
 %p
   = @post.body
+- if @post.tags.any?
+  = render @tags
 - if @post.comments.any?
   = render @comments
 = render 'commentate'

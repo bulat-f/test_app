@@ -2,4 +2,6 @@
   = link_to post.title, post
   %span.time
     = "Posted #{time_ago_in_words(post.created_at)} ago"
+  - if post.tags.any?
+    = render post.tags
   = render 'shared/admin_links', edit_path: edit_post_path(post), removed: post

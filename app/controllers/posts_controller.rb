@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @comments = @post.comments
+    @tags = @post.tags
   end
 
   def new
@@ -48,6 +49,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :str_tags)
   end
 end
