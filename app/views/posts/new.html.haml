@@ -8,4 +8,5 @@
   = f.text_area :body
   = f.label :str_tags
   = f.text_field :str_tags
+  = f.select :category_id, Category.to_a, {}, { class: "form-control" }
   = f.submit "Create post", class: "btn btn-lg btn-primary"

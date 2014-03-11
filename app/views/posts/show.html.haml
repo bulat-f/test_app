@@ -1,3 +1,6 @@
+%ol.breadcrumb
+  - if @post.category
+    = render @post.category.path
 %h1
   = @post.title 
 %p

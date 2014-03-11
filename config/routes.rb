@@ -4,6 +4,7 @@ TestApp::Application.routes.draw do
 
   resources :posts
   resources :comments, only: [:create, :destroy]
+  resources :categories, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
