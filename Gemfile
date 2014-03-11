@@ -8,6 +8,9 @@ gem 'sqlite3'
 
 gem 'devise'
 
+# Sample captcha
+gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
+
 # Use haml as viewer
 gem 'haml-rails'
 

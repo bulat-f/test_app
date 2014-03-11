@@ -1,13 +1,16 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: :destroy
   before_action :admin_user,         only: :destroy
+
+  apply_simple_captcha
+
   def create
     if user_signed_in?
       @comment = current_user.comments.build(comment_params)
     else
       @comment = Comment.new(comment_params)
     end
-    if @comment.save
+    if @comment.valid_with_captcha? && @comment.save
       flash[:success] = 'Post commented successful'
     else
       flash[:warning] = 'Comment did not commented'
