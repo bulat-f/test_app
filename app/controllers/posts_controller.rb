@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
     order = params[:DESC] ? :desc : :asc
-    @posts = Post.order(created_at: order).paginate(page: params[:page])
+    @posts = Post.search(params[:search]).order(created_at: order).paginate(page: params[:page])
   end
 
   def show
